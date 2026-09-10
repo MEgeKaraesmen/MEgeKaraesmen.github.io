@@ -1,74 +1,1071 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mehmet Ege Karaesmen</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Personal website of M. Ege Karaesmen, PhD candidate in Geophysics at the University of Texas at Austin."
+    />
+    <title>M. Ege Karaesmen | Geophysics</title>
+    <link rel="icon" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* palette */
+        --paper: #faf8ef; /* background */
+        --ink: #16438e; /* main — headings and body text */
+        --muted: #47678f; /* secondary text */
+        --rule: #dbe2ec; /* hairlines */
+        --mark: #167e8e; /* section rules, active nav */
+        --link: #9f2a1e; /* high contrast — links */
+        --focus: #4a82e3; /* secondary — focus rings, hover */
 
-<nav>
-    <a href="index.html" class="logo">M. Ege Karaesmen</a>
-    <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
+        --display: clamp(2.5rem, 6.5vw, 4rem);
+        --head: 1.375rem;
+        --body: 1.0625rem;
+        --small: 0.8125rem;
 
-<section class="hero">
-    <h1>Mehmet Ege Karaesmen</h1>
-    <p class="subtitle">PhD Student in Geophysics &middot; Jackson School of Geosciences &middot; UT Austin</p>
-    <p>I study past climate variability using coral geochemical proxies, combining paleoceanographic methods with time series analysis and age modeling.</p>
-    <a href="research.html" class="btn">My Research</a>
-    <a href="contact.html" class="btn outline">Get in Touch</a>
-    <a href="https://www.linkedin.com/in/mehmet-ege-karaesmen-853350258/" class="btn outline" target="_blank">LinkedIn</a>
-    <a href="https://github.com/MEgeKaraesmen" class="btn outline" target="_blank">GitHub</a>
-</section>
+        --col: 43rem;
+        --wide: 66rem;
+        --gutter: 1.5rem;
 
-<div class="container">
+        color-scheme: light;
+      }
 
-    <h2 class="section-title">Research Interests</h2>
-    <div class="card-grid">
-        <div class="card">
-            <h3>Coral Paleoclimatology</h3>
-            <p>Reconstructing past ocean and climate conditions using stable isotope records (&delta;<sup>18</sup>O, &delta;<sup>13</sup>C) from coral skeletons.</p>
-            <span class="tag">Paleoclimate</span>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: var(--body);
+        font-weight: 400;
+        line-height: 1.65;
+        font-variant-numeric: tabular-nums;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      ul,
+      dl,
+      dd,
+      dt,
+      figure {
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 3px;
+      }
+
+      /* ---------- measure ---------- */
+
+      .col,
+      .wide {
+        width: 100%;
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+      }
+
+      .col {
+        max-width: calc(var(--col) + var(--gutter) * 2);
+      }
+
+      .wide {
+        max-width: calc(var(--wide) + var(--gutter) * 2);
+      }
+
+      .stack > * + * {
+        margin-top: 1rem;
+      }
+
+      /* ---------- shared type ---------- */
+
+      .label {
+        color: var(--muted);
+        font-size: var(--small);
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        color: var(--muted);
+      }
+
+      .note {
+        color: var(--muted);
+        font-size: var(--small);
+        line-height: 1.6;
+      }
+
+      .link {
+        color: var(--link);
+        text-decoration: none;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 1px;
+      }
+
+      .link:hover {
+        color: var(--ink);
+      }
+
+      /* palette band across the top */
+      .band {
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--ink) 0 25%,
+          var(--focus) 25% 50%,
+          var(--mark) 50% 75%,
+          var(--link) 75% 100%
+        );
+      }
+
+      /* ---------- masthead ---------- */
+
+      .masthead {
+        padding-block: 2.5rem 0;
+      }
+
+      .masthead-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 2rem;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+
+      .name {
+        font-size: var(--small);
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .masthead nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .masthead nav a {
+        color: var(--muted);
+        font-size: var(--small);
+        text-decoration: none;
+        padding-bottom: 2px;
+        border-bottom: 1px solid transparent;
+      }
+
+      .masthead nav a:hover {
+        color: var(--link);
+      }
+
+      .masthead nav a[aria-current="page"] {
+        color: var(--ink);
+        border-bottom-width: 2px;
+        border-bottom-color: var(--mark);
+      }
+
+      /* ---------- pages ---------- */
+
+      .page {
+        padding-block: clamp(3.5rem, 10vh, 6rem) 0;
+      }
+
+      .js .page {
+        animation: rise 0.28s ease both;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+      }
+
+      .page-head h1 {
+        max-width: 20ch;
+        font-size: var(--display);
+        font-weight: 400;
+        line-height: 1.06;
+        letter-spacing: -0.035em;
+        text-wrap: balance;
+      }
+
+      .page-head .label {
+        display: block;
+        margin-bottom: 1rem;
+      }
+
+      .page-head .label::before,
+      .block-head::before {
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        margin-right: 0.6rem;
+        background: var(--mark);
+        content: "";
+      }
+
+      .page-head .lede {
+        margin-top: 1.75rem;
+      }
+
+      .block {
+        margin-top: clamp(3.5rem, 9vh, 5.5rem);
+      }
+
+      .block-head {
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--mark);
+      }
+
+      .block-head + * {
+        margin-top: 2.25rem;
+      }
+
+      /* ---------- home ---------- */
+
+      .bio {
+        display: grid;
+        grid-template-columns: 16rem 1fr;
+        gap: 2.5rem;
+        align-items: start;
+        margin-top: clamp(2.5rem, 7vh, 4rem);
+      }
+
+      .bio img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .bio p + p {
+        margin-top: 1rem;
+      }
+
+      .bio-more {
+        margin-top: 1.75rem;
+      }
+
+      /* ---------- focus list ---------- */
+
+      .focus dt {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        font-weight: 500;
+      }
+
+      /* icons are masked, so they take the teal regardless of the file's own colours */
+      .focus dt::before {
+        flex: none;
+        width: 1.75rem;
+        height: 1.75rem;
+        background-color: var(--mark);
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        -webkit-mask-position: center;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        content: "";
+      }
+
+      .focus dt[data-icon="mountain"]::before {
+        mask-image: url("icons/mountain.svg");
+        -webkit-mask-image: url("icons/mountain.svg");
+      }
+
+      .focus dt[data-icon="compass"]::before {
+        mask-image: url("icons/compass.svg");
+        -webkit-mask-image: url("icons/compass.svg");
+      }
+
+      .focus dt[data-icon="thermometer"]::before {
+        mask-image: url("icons/thermometer.svg");
+        -webkit-mask-image: url("icons/thermometer.svg");
+      }
+
+      .focus dt[data-icon="leaf"]::before {
+        mask-image: url("icons/leaf.svg");
+        -webkit-mask-image: url("icons/leaf.svg");
+      }
+
+      .focus dd {
+        margin: 0.4rem 0 0 2.6rem;
+        color: var(--muted);
+      }
+
+      .focus > div + div {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--rule);
+      }
+
+      /* ---------- studies ---------- */
+
+      .study + .study {
+        margin-top: clamp(3rem, 8vh, 4.5rem);
+      }
+
+      .study-index {
+        display: block;
+        margin-bottom: 0.875rem;
+      }
+
+      .study h3 {
+        max-width: 34ch;
+        font-size: var(--head);
+        font-weight: 400;
+        letter-spacing: -0.015em;
+        text-wrap: balance;
+      }
+
+      .study p {
+        margin-top: 1rem;
+      }
+
+      figure {
+        margin-top: 2.25rem;
+      }
+
+      .frame {
+        border: 1px solid var(--mark);
+        background: #fff;
+      }
+
+      .frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .frame iframe {
+        display: block;
+        width: 100%;
+        height: 32rem;
+        border: 0;
+      }
+
+      figcaption {
+        margin-top: 0.75rem;
+      }
+
+      /* ---------- cv ---------- */
+
+      .cv-block h3 {
+        margin-bottom: 1.25rem;
+        font-size: var(--body);
+        font-weight: 500;
+      }
+
+      .cv-block + .cv-block {
+        margin-top: 3.25rem;
+      }
+
+      .entry {
+        display: grid;
+        grid-template-columns: 11rem 1fr;
+        gap: 0.25rem 2rem;
+        padding-block: 1.125rem;
+        border-top: 1px solid var(--rule);
+      }
+
+      .entry:last-child {
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .entry .date {
+        color: var(--muted);
+        font-size: var(--small);
+        line-height: 1.9;
+      }
+
+      .entry h4 {
+        font-size: var(--body);
+        font-weight: 500;
+      }
+
+      .entry p {
+        color: var(--muted);
+      }
+
+      .traits {
+        margin: 0;
+      }
+
+      .traits > div {
+        display: grid;
+        grid-template-columns: 15rem 1fr;
+        gap: 0.25rem 2rem;
+        padding-block: 0.8rem;
+        border-top: 1px solid var(--rule);
+      }
+
+      .traits > div:last-child {
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .traits dt {
+        font-weight: 500;
+      }
+
+      .traits dd {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .traits .qual {
+        display: block;
+        font-size: var(--small);
+      }
+
+      .interests {
+        margin-top: 1.5rem;
+        color: var(--muted);
+      }
+
+      /* ---------- link list ---------- */
+
+      .rows {
+        padding: 0;
+        list-style: none;
+      }
+
+      .rows li + li {
+        border-top: 1px solid var(--rule);
+      }
+
+      .rows li:last-child {
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .rows a {
+        display: grid;
+        grid-template-columns: 11rem 1fr;
+        gap: 0.25rem 2rem;
+        padding: 1.125rem 0.75rem;
+        margin-inline: -0.75rem;
+        text-decoration: none;
+      }
+
+      .rows a:hover {
+        background: color-mix(in srgb, var(--mark) 8%, transparent);
+      }
+
+      .rows-value {
+        color: var(--link);
+      }
+
+      .rows a:hover .rows-value {
+        color: var(--ink);
+      }
+
+      .rows .label {
+        line-height: 1.9;
+      }
+
+      .rows-value {
+        overflow-wrap: anywhere;
+      }
+
+      .rows-note {
+        display: block;
+        margin-top: 0.125rem;
+        color: var(--muted);
+        font-size: var(--small);
+      }
+
+      /* ---------- footer ---------- */
+
+      footer {
+        margin-top: clamp(4rem, 10vh, 6rem);
+        padding-block: 2rem 3.5rem;
+      }
+
+      footer p {
+        color: var(--muted);
+        font-size: var(--small);
+      }
+
+      /* ---------- narrow ---------- */
+
+      @media (max-width: 36rem) {
+        .bio {
+          grid-template-columns: 1fr;
+          gap: 1.75rem;
+        }
+
+        .bio-photo {
+          max-width: 11rem;
+        }
+
+        .entry,
+        .rows a,
+        .traits > div {
+          grid-template-columns: 1fr;
+          gap: 0.375rem;
+        }
+
+        .entry .date,
+        .rows .label {
+          line-height: 1.6;
+        }
+
+        .frame iframe {
+          height: 26rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .js .page {
+          animation: none;
+        }
+      }
+
+      @media print {
+        :root {
+          --paper: #fff;
+        }
+
+        .band,
+        .masthead nav,
+        figure {
+          display: none;
+        }
+
+        .page[hidden] {
+          display: block !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <div class="band" aria-hidden="true"></div>
+
+    <header class="masthead">
+      <div class="col masthead-inner">
+        <a class="name" href="#home">M. Ege Karaesmen</a>
+        <nav id="nav" aria-label="Sections">
+          <a href="#home">Home</a>
+          <a href="#research">Research</a>
+          <a href="#cv">CV</a>
+          <a href="#links">Links</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============ HOME ============ -->
+      <section class="page" id="home" data-title="M. Ege Karaesmen | Geophysics">
+        <div class="col page-head">
+          <span class="label">PhD Candidate in Geophysics</span>
+          <h1>Decoding the deep structure of our planet.</h1>
         </div>
-        <div class="card">
-            <h3>Age Modeling</h3>
-            <p>Developing and refining age models for coral archives using X-ray imaging, peak matching, and time series methods.</p>
-            <span class="tag">Time Series</span>
-        </div>
-        <div class="card">
-            <h3>Geophysical Data Analysis</h3>
-            <p>Applying signal processing, spectral analysis, and GIS tools to geophysical and environmental datasets.</p>
-            <span class="tag">Data Science</span>
-        </div>
-    </div>
 
-    <h2 class="section-title">Recent Work</h2>
-    <div class="card-grid">
-        <div class="card">
-            <h3>Coral TSA — Time Series Analysis</h3>
-            <p>Ongoing PhD research at UT Austin on coral proxy records and climate reconstruction.</p>
-            <span class="tag">In progress</span>
+        <div class="col bio">
+          <div class="bio-photo">
+            <!-- Replace with your photo -->
+            <img src="portrait.jpg" alt="Portrait of M. Ege Karaesmen" />
+          </div>
+          <div class="bio-text">
+            <p>
+              I am a PhD candidate in geophysics at the University of Texas at Austin, Jackson School of
+              Geosciences, working on tectonics, paleogeodesy, paleoclimate and biogeology.
+            </p>
+            <p>
+              I use corals as natural instruments for measuring past earthquakes. My dissertation reconstructs how
+              the New Georgia Island Group megathrust in the Solomon Islands deforms between and during
+              earthquakes, using stable isotopes measured along coral cores together with satellite radar geodesy
+              (InSAR).
+            </p>
+            <p>
+              Before Austin I studied geology and geophysics at the University of Bonn, and worked as a
+              meteorologist and data analyst on wind atlas modelling in Germany.
+            </p>
+            <p class="bio-more">
+              <a class="link" href="#research">Read the research</a>
+            </p>
+          </div>
         </div>
-        <div class="card">
-            <h3>Wind Atlas — Meteorology & Data Analysis</h3>
-            <p>Meteorological data analysis and consulting at anemos GmbH, Lüneburg, Germany.</p>
-            <span class="tag">2023 – 2024</span>
+      </section>
+
+      <!-- ============ RESEARCH ============ -->
+      <section class="page" id="research" data-title="Research | M. Ege Karaesmen">
+        <div class="col page-head">
+          <span class="label">Research</span>
+          <h1>Reading the Earth through living archives.</h1>
+          <p class="lede">
+            My research combines numerical models, coral geochemistry, satellite radar geodesy and climate
+            reanalysis to understand how the solid Earth, ocean and atmosphere record change.
+          </p>
         </div>
-    </div>
 
-</div>
+        <div class="col block">
+          <p class="label block-head">Focus areas</p>
+          <dl class="focus">
+            <div>
+              <dt data-icon="mountain">Tectonics</dt>
+              <dd>
+                Investigating the forces that shape the Earth's lithosphere, from continental rifting to the
+                collision of plates that raises mountain ranges.
+              </dd>
+            </div>
+            <div>
+              <dt data-icon="compass">Paleogeodesy</dt>
+              <dd>
+                Reconstructing ancient crustal deformation and surface motions by reading the geological record
+                across deep time.
+              </dd>
+            </div>
+            <div>
+              <dt data-icon="thermometer">Paleoclimate</dt>
+              <dd>
+                Examining climate signatures preserved in sedimentary basins to understand historical and future
+                atmospheric change.
+              </dd>
+            </div>
+            <div>
+              <dt data-icon="leaf">Biogeology</dt>
+              <dd>
+                Exploring the feedback between the biosphere and geosphere, and how life and tectonics reshape one
+                another.
+              </dd>
+            </div>
+          </dl>
+        </div>
 
-<footer>
-    <p>Mehmet Ege Karaesmen &middot; Jackson School of Geosciences, UT Austin &middot; m.karaesmen@utexas.edu</p>
-</footer>
+        <div class="col block">
+          <p class="label block-head">Corals as natural instruments</p>
+          <div class="stack">
+            <p>
+              Massive corals grow upward until they reach the sea surface and then stop, which makes them sensitive
+              recorders of both ocean climate and land motion. A colony that is lifted during an earthquake dies
+              back to the new waterline and leaves a dated surface in its own skeleton; one that subsides catches
+              up by growing vertically again.
+            </p>
+            <p>
+              My dissertation reads that record along the New Georgia Island Group megathrust in the Solomon
+              Islands, where the 2007 M<sub>w</sub> 8.1 earthquake uplifted reefs across the island group. Stable
+              isotopes recorded in the coral's skeleton deliver a temporally high-resolution time series. I
+              developed a new proxy for relative water depth to reconstruct the vertical tectonic change captured
+              in the coral's tissues.
+            </p>
+          </div>
 
-</body>
+          <article class="study" style="margin-top: 3rem">
+            <div>
+              <span class="label study-index">01 &nbsp;/&nbsp; Growth model</span>
+              <h3>A living archive of sea-level change</h3>
+              <p>
+                A two-dimensional cellular automaton grows a coral colony under a prescribed relative sea-level
+                history. The rules describe lateral extension, vertical catch-up during submergence, mortality on
+                emergence, recolonisation and erosion.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <figure class="wide">
+          <div class="frame">
+            <img
+              data-src="research/coral-colony-evolution.gif"
+              alt="Animated simulation of a coral colony growing under changing sea level"
+            />
+          </div>
+          <figcaption class="note">
+            Modelled colony growth under the reconstructed relative sea-level history, with the 2007 uplift near
+            the end of the run.
+          </figcaption>
+        </figure>
+
+        <div class="col block" style="margin-top: clamp(3rem, 8vh, 4.5rem)">
+          <article class="study">
+            <span class="label study-index">02 &nbsp;/&nbsp; Time-series analysis</span>
+            <h3>Fifty years of isotopes along a coral core</h3>
+            <p>
+              Oxygen isotopes measured at high resolution along a core through a coral head track sea-surface
+              temperature and salinity, giving an independent, seasonally resolved chronology for the same colony
+              the growth model describes.
+            </p>
+            <p>
+              Comparing that series against sea-surface salinity separates the climate signal from the land-motion
+              signal, so that the remaining deformation history can be read against satellite radar geodesy over
+              the instrumental period.
+            </p>
+          </article>
+        </div>
+
+        <figure class="wide">
+          <div class="frame">
+            <iframe
+              data-src="research/coral-isotopes-salinity.html"
+              title="Interactive coral oxygen isotope and salinity figure"
+            ></iframe>
+          </div>
+          <figcaption class="note">
+            Nearly fifty years of δ¹⁸O measured along a coral core, against sea-surface salinity. Hover and zoom to
+            explore individual samples.
+          </figcaption>
+        </figure>
+
+        <div class="col block">
+          <p class="label block-head">Further work</p>
+          <article class="study">
+            <h3>A monsoon redistributed across India</h3>
+            <p>
+              Across the 1950–2025 ERA5 record, the Indian monsoon shows a regional pattern of change rather than a
+              uniform national shift. Rainfall has declined along the west coast, in northeast India and in the
+              Himalayan foothills, while central and peninsular India show little change.
+            </p>
+            <p>
+              At Goa, onset remains in early-to-mid June but withdrawal has moved about 12 days later since the
+              1950s, stretching the season even as overall intensity declines.
+            </p>
+          </article>
+        </div>
+
+        <figure class="wide">
+          <div class="frame">
+            <iframe
+              data-src="research/goa-monsoon-rose.html"
+              title="Interactive India monsoon change rose diagram"
+            ></iframe>
+          </div>
+          <figcaption class="note">
+            Onset, withdrawal and season length by decade, across seven points in India.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ============ CV ============ -->
+      <section class="page" id="cv" data-title="CV | M. Ege Karaesmen">
+        <div class="col page-head">
+          <span class="label">Curriculum vitae</span>
+          <h1>Physics, geophysics, atmosphere.</h1>
+          <p class="lede">An academic path across two continents, from engineering geology to megathrust geodesy.</p>
+        </div>
+
+        <div class="col block">
+          <div class="cv-block">
+            <h3>Education</h3>
+            <div class="entry">
+              <p class="date">Aug 2024 – present</p>
+              <div>
+                <h4>PhD Geophysics</h4>
+                <p>University of Texas at Austin, Jackson School of Geosciences, USA</p>
+              </div>
+            </div>
+            <div class="entry">
+              <p class="date">Sep 2020 – Aug 2023</p>
+              <div>
+                <h4>M.Sc. Physics of Earth and Atmosphere</h4>
+                <p>University of Bonn, Germany · GPA 3.3</p>
+              </div>
+            </div>
+            <div class="entry">
+              <p class="date">Oct 2016 – Sep 2020</p>
+              <div>
+                <h4>B.Sc. Geosciences, specialised in Geophysics</h4>
+                <p>University of Bonn, Germany · GPA 3.2</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-block">
+            <h3>Work experience</h3>
+            <div class="entry">
+              <p class="date">Sep 2026 – Feb 2027</p>
+              <div>
+                <h4>Teaching Assistant — GEO 311D: GeoData</h4>
+                <p>University of Texas at Austin, USA</p>
+              </div>
+            </div>
+            <div class="entry">
+              <p class="date">Jun 2025 – Aug 2026</p>
+              <div>
+                <h4>Research Assistant</h4>
+                <p>UT Austin, Jackson School of Geosciences, USA</p>
+              </div>
+            </div>
+            <div class="entry">
+              <p class="date">Jan 2025 – May 2025</p>
+              <div>
+                <h4>Teaching Assistant — GEO 303: Introduction to Geology</h4>
+                <p>University of Texas at Austin, USA</p>
+              </div>
+            </div>
+            <div class="entry">
+              <p class="date">Nov 2023 – Aug 2024</p>
+              <div>
+                <h4>Meteorologist, Data Analyst &amp; Consultant</h4>
+                <p>anemos Gesellschaft für Umweltmeteorologie mbH, Lüneburg, Germany · Wind Atlas Department</p>
+              </div>
+            </div>
+            <div class="entry">
+              <p class="date">Sep 2022 – Aug 2023</p>
+              <div>
+                <h4>Teaching Assistant — Mathematics and Statistics in Biology</h4>
+                <p>Institute for Applied Mathematics, University of Bonn, Germany · R exercises</p>
+              </div>
+            </div>
+            <div class="entry">
+              <p class="date">Mar 2021 – Jul 2023</p>
+              <div>
+                <h4>Research Assistant</h4>
+                <p>Institute of Geophysics, University of Bonn, Germany</p>
+              </div>
+            </div>
+            <div class="entry">
+              <p class="date">May 2019 – Jul 2020</p>
+              <div>
+                <h4>Geologist</h4>
+                <p>Ingenieurteam Dr. Hemling &amp; Gräfe GmbH, Germany · Engineering Geology &amp; Hydrogeology</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col block">
+          <p class="label block-head">Languages</p>
+          <dl class="traits">
+            <div>
+              <dt>Turkish</dt>
+              <dd>Native proficiency</dd>
+            </div>
+            <div>
+              <dt>German</dt>
+              <dd>
+                Full working proficiency
+                <span class="qual">DSD II, 2014</span>
+              </dd>
+            </div>
+            <div>
+              <dt>English</dt>
+              <dd>
+                Full working proficiency
+                <span class="qual">TOEFL iBT 101, 2023</span>
+              </dd>
+            </div>
+            <div>
+              <dt>French</dt>
+              <dd>Beginner</dd>
+            </div>
+            <div>
+              <dt>Italian</dt>
+              <dd>Beginner</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="col block">
+          <p class="label block-head">Software</p>
+          <dl class="traits">
+            <div>
+              <dt>Python</dt>
+              <dd>Excellent <span class="qual">NumPy, Pandas, SciPy, Matplotlib</span></dd>
+            </div>
+            <div>
+              <dt>GIS</dt>
+              <dd>Excellent <span class="qual">QGIS, ArcGIS</span></dd>
+            </div>
+            <div>
+              <dt>LaTeX</dt>
+              <dd>Excellent</dd>
+            </div>
+            <div>
+              <dt>MS Office</dt>
+              <dd>Excellent <span class="qual">Word, Excel, Access, PowerPoint</span></dd>
+            </div>
+            <div>
+              <dt>MATLAB</dt>
+              <dd>Confident</dd>
+            </div>
+            <div>
+              <dt>Linux</dt>
+              <dd>Confident</dd>
+            </div>
+            <div>
+              <dt>Git</dt>
+              <dd>Confident</dd>
+            </div>
+            <div>
+              <dt>R</dt>
+              <dd>Intermediate <span class="qual">ggplot, dplyr</span></dd>
+            </div>
+            <div>
+              <dt>C++</dt>
+              <dd>Beginner</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="col block">
+          <p class="label block-head">Outside the lab</p>
+          <p class="interests">
+            Water polo · Bouldering · Classical guitar · Cinema · Literature · Cooking
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ LINKS ============ -->
+      <section class="page" id="links" data-title="Links | M. Ege Karaesmen">
+        <div class="col page-head">
+          <span class="label">Elsewhere</span>
+          <h1>Get in touch.</h1>
+          <p class="lede">
+            Always open to discussing research collaborations, geology and new scientific frontiers.
+          </p>
+        </div>
+
+        <div class="col block">
+          <p class="label block-head">Email</p>
+          <ul class="rows">
+            <li>
+              <a href="mailto:m.karaesmen@utexas.edu">
+                <span class="label">Academic</span>
+                <span class="rows-value">m.karaesmen@utexas.edu</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:m.karaesmen@gmail.com">
+                <span class="label">Personal</span>
+                <span class="rows-value">m.karaesmen@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col block">
+          <p class="label block-head">Profiles</p>
+          <ul class="rows">
+            <li>
+              <a href="https://www.linkedin.com/in/mehmet-ege-karaesmen-853350258/" rel="me noopener">
+                <span class="label">LinkedIn</span>
+                <span class="rows-value">
+                  mehmet-ege-karaesmen
+                  <span class="rows-note">Professional profile and updates.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/MEgeKaraesmen" rel="me noopener">
+                <span class="label">GitHub</span>
+                <span class="rows-value">
+                  github.com/MEgeKaraesmen
+                  <span class="rows-note">Coral growth model, InSAR processing and analysis notebooks.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://scholar.google.com/citations?user=CSPQlHoAAAAJ&amp;hl=en" rel="me noopener">
+                <span class="label">Google Scholar</span>
+                <span class="rows-value">
+                  scholar.google.com
+                  <span class="rows-note">Publications and citations.</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://orcid.org/0009-0007-3837-500X" rel="me noopener">
+                <span class="label">ORCID</span>
+                <span class="rows-value">
+                  0009-0007-3837-500X
+                  <span class="rows-note">Persistent researcher identifier.</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="col">
+        <p>University of Texas at Austin · Jackson School of Geosciences</p>
+        <p>© 2026 M. Ege Karaesmen</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var pages = Array.prototype.slice.call(document.querySelectorAll(".page"));
+        var navLinks = Array.prototype.slice.call(document.querySelectorAll("#nav a"));
+        var ids = pages.map(function (p) {
+          return p.id;
+        });
+
+        function loadAssets(page) {
+          page.querySelectorAll("[data-src]").forEach(function (el) {
+            el.src = el.dataset.src;
+            el.removeAttribute("data-src");
+          });
+        }
+
+        function show(id, scroll) {
+          if (ids.indexOf(id) === -1) id = ids[0];
+
+          pages.forEach(function (page) {
+            var active = page.id === id;
+            page.hidden = !active;
+            if (active) {
+              loadAssets(page);
+              if (page.dataset.title) document.title = page.dataset.title;
+            }
+          });
+
+          navLinks.forEach(function (a) {
+            if (a.getAttribute("href") === "#" + id) {
+              a.setAttribute("aria-current", "page");
+            } else {
+              a.removeAttribute("aria-current");
+            }
+          });
+
+          if (scroll) window.scrollTo(0, 0);
+        }
+
+        function fromHash() {
+          return (location.hash || "").replace(/^#\/?/, "") || ids[0];
+        }
+
+        window.addEventListener("hashchange", function () {
+          show(fromHash(), true);
+        });
+
+        show(fromHash(), false);
+      })();
+    </script>
+  </body>
 </html>
