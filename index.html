@@ -378,6 +378,59 @@
         margin-top: 0.75rem;
       }
 
+      /* ---------- publications ---------- */
+
+      .pub + .pub {
+        margin-top: clamp(3rem, 8vh, 4.5rem);
+        padding-top: clamp(3rem, 8vh, 4.5rem);
+        border-top: 1px solid var(--rule);
+      }
+
+      .pub-thumb {
+        display: block;
+        margin-bottom: 1.75rem;
+      }
+
+      .pub-thumb img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .pub-thumb:hover {
+        opacity: 0.88;
+      }
+
+      .pub h3 {
+        margin-top: 0.75rem;
+        font-size: var(--head);
+        font-weight: 400;
+        letter-spacing: -0.015em;
+        text-wrap: balance;
+      }
+
+      .pub-sub {
+        margin-top: 0.5rem;
+        color: var(--muted);
+      }
+
+      .pub-authors {
+        margin-top: 0.9rem;
+      }
+
+      .pub-venue {
+        margin-top: 0.25rem;
+        color: var(--muted);
+        font-size: var(--small);
+      }
+
+      .pub-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 1.4rem;
+      }
+
       /* ---------- cv ---------- */
 
       .cv-block h3 {
@@ -580,6 +633,7 @@
         <nav id="nav" aria-label="Sections">
           <a href="#home">Home</a>
           <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
           <a href="#cv">CV</a>
           <a href="#links">Links</a>
         </nav>
@@ -611,7 +665,7 @@
               (InSAR).
             </p>
             <p>
-              Before Austin I studied geology and geophysics at the University of Bonn, and worked as a
+              Before Austin, I studied geology and geophysics at the University of Bonn, and worked as a
               meteorologist and data analyst on wind atlas modelling in Germany.
             </p>
             <p class="bio-more">
@@ -769,6 +823,61 @@
         </figure>
       </section>
 
+      <!-- ============ PUBLICATIONS ============ -->
+      <section class="page" id="publications" data-title="Publications | M. Ege Karaesmen">
+        <div class="col page-head">
+          <span class="label">Publications</span>
+          <h1>Posters and presentations.</h1>
+          <p class="lede">
+            Conference material from my dissertation work, free to download.
+          </p>
+        </div>
+
+        <div class="col block">
+          <p class="label block-head">Conference posters</p>
+
+          <article class="pub">
+            <a
+              class="pub-thumb frame"
+              href="posters/EGU2026-karaesmen-coral-geodesy.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                data-src="posters/EGU2026-karaesmen-coral-geodesy.jpg"
+                alt="Preview of the EGU 2026 poster on high-resolution coral geodesy in the Solomon Islands"
+              />
+            </a>
+            <span class="label">2026</span>
+            <h3>High-resolution coral geodesy in the Solomon Islands</h3>
+            <p class="pub-sub">
+              Development of a centennial record of vertical motion at a megathrust using coral δ¹³C
+            </p>
+            <p class="pub-authors">M. Ege Karaesmen, Luc Lavier, Frederick Taylor</p>
+            <p class="pub-venue">
+              University of Texas at Austin, UTIG · EGU General Assembly 2026, Vienna, 3–8 May 2026 ·
+              Session TS3.2 · EGU26-15880
+            </p>
+            <p class="pub-actions">
+              <a
+                class="link"
+                href="posters/EGU2026-karaesmen-coral-geodesy.pdf"
+                target="_blank"
+                rel="noopener"
+                >Download poster (PDF, 4.4 MB)</a
+              >
+              <a
+                class="link"
+                href="https://meetingorganizer.copernicus.org/EGU26/EGU26-15880.html"
+                target="_blank"
+                rel="noopener"
+                >Abstract</a
+              >
+            </p>
+          </article>
+        </div>
+      </section>
+
       <!-- ============ CV ============ -->
       <section class="page" id="cv" data-title="CV | M. Ege Karaesmen">
         <div class="col page-head">
@@ -791,14 +900,14 @@
               <p class="date">Sep 2020 – Aug 2023</p>
               <div>
                 <h4>M.Sc. Physics of Earth and Atmosphere</h4>
-                <p>University of Bonn, Germany · GPA 3.3</p>
+                <p>University of Bonn, Germany</p>
               </div>
             </div>
             <div class="entry">
               <p class="date">Oct 2016 – Sep 2020</p>
               <div>
                 <h4>B.Sc. Geosciences, specialised in Geophysics</h4>
-                <p>University of Bonn, Germany · GPA 3.2</p>
+                <p>University of Bonn, Germany</p>
               </div>
             </div>
           </div>
